@@ -1,0 +1,9 @@
+.toolbar-filler {
+    flex: 1 1 auto
+  }
+  .icon .mat-icon{
+  color:rgb(243, 168, 83);
+  font-size: 40px;
+  margin-top: -15px;
+  }
+  
