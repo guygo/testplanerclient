@@ -12,15 +12,15 @@ export class NavComponent implements OnInit {
   title = 'TestPlanerClient';
   userState: boolean;
   ngOnInit() {
-    this.auth.currentUserstatus.subscribe(status => this.userState = status);
+    //this.auth.currentUserstatus.subscribe(status => this.userState = status);
   }
   logout()
   {
-    this.auth.userToken = null;
+    //this.auth.userToken = null;
     this.auth.logout();
     localStorage.removeItem('token');
     console.log('logged out');
-    this.auth.currentUserstatus.subscribe(status => this.userState = status);
+    //this.auth.currentUserstatus.subscribe(status => this.userState = status);
   }
  loggedIn()
  {

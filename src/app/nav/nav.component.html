@@ -18,8 +18,8 @@
     <a class="title-link">{{title}}</a>
   </h1>
   <span class="toolbar-filler"></span>
-  <a *ngIf="userState==false" routerLink = "/signup" id="button-login" mat-button>Sign Up</a>
+  <a  routerLink = "/signup" id="button-login" mat-button>Sign Up</a>
   <!--<button id="button-login" mat-button [routerLink]="['/signupin']" *ngIf="!(user | async)">Log In</button>-->
-  <a *ngIf="userState==true" routerLink = "/logout" (click)="logout()" id="button-logout" mat-button>Log out</a>
-  <a *ngIf="userState==false" routerLink = "/login" id="button-login" mat-button>Log in</a>
+  <a  routerLink = "/logout" (click)="logout()" id="button-logout" mat-button>Log out</a>
+  <a  routerLink = "/login" id="button-login" mat-button>Log in</a>
 </mat-toolbar>

@@ -13,6 +13,7 @@ import { NavComponent } from './nav/nav.component';
 import { RegisterComponent } from './register/register.component';
 import { ToastService, AngularToastifyModule } from 'angular-toastify';
 import { SideNavComponent } from './side-nav/side-nav.component';
+
 @NgModule({
   declarations: [
     AppComponent,
