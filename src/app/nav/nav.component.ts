@@ -8,21 +8,24 @@ import { AuthService } from '../auth/auth.service';
 })
 export class NavComponent implements OnInit {
 
-  constructor(private auth:AuthService) { }
-  userState:boolean; 
+  constructor(private auth: AuthService) { }
+  title = 'TestPlanerClient';
+  userState: boolean;
   ngOnInit() {
-    this.auth.currentUserstatus.subscribe(status=>this.userState=status);
+    this.auth.currentUserstatus.subscribe(status => this.userState = status);
   }
-  logout(){
-    this.auth.userToken=null;
+  logout()
+  {
+    this.auth.userToken = null;
     this.auth.logout();
     localStorage.removeItem('token');
     console.log('logged out');
-    this.auth.currentUserstatus.subscribe(status=>this.userState=status);
+    this.auth.currentUserstatus.subscribe(status => this.userState = status);
   }
- loggedIn(){
-   
-   const token =localStorage.getItem('token');
-   return !!token; 
+ loggedIn()
+ {
+
+   const token = localStorage.getItem('token');
+   return !!token;
  }
 }

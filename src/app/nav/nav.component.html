@@ -1,40 +1,25 @@
-<mat-sidenav-container fullscreen>
-    <mat-sidenav #sidenav mode="push" class="app-sidenav">
-      <mat-toolbar color="primary">
-        <!--future svg to go here-->
-        <span class="toolbar-filler"></span>
-        <button mat-icon-button (click)="sidenav.toggle()" class="mat-icon-button sidenav-toggle-button" [hidden]="!sidenav.opened">
-          <mat-icon aria-label="Menu" class="material-icons">close</mat-icon>
-        </button>
-      </mat-toolbar>
-      <mat-nav-list>
-        <a mat-list-item class="sidenav-link" [routerLink]="['/comp1']" (click)="sidenav.toggle()">
-        
-          <mat-icon class="dash" mat-list-icon>dashboard</mat-icon>
-          <span class="title" mat-line>comp1</span>
-          <span mat-line class="secondary">test</span>
-        </a>
-        <a mat-list-item class="sidenav-link" [routerLink]="['/comp2']" (click)="sidenav.toggle()">
-          <mat-icon mat-list-icon>android</mat-icon>
-          <span class="title" mat-line>comp2</span>
-          <span mat-line class="secondary">test</span>
-        </a>
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-toolbar id="appToolbar" color="primary">
-      <button mat-icon-button (click)="sidenav.toggle()" class="mat-icon-button sidenav-toggle-button" [hidden]="sidenav.opened">
-                  <mat-icon aria-label="Menu" class="material-icons">menu</mat-icon>
-          </button>
-      <h1 class="component-title">
-        <a class="title-link">{{title}}</a>
-      </h1>
-      <span class="toolbar-filler"></span>
-      <!--<button id="button-login" mat-button [routerLink]="['/signupin']" *ngIf="!(user | async)">Log In</button>-->
-      <a *ngIf="userState==true" routerLink = "/logout" (click)="logout()" id="button-logout" mat-button>Log out</a>
-      <a *ngIf="userState==false" routerLink = "/login" id="button-login" mat-button>Log in</a>
-    </mat-toolbar>
-   <br>
-   <br>
-     <router-outlet></router-outlet>
-  </mat-sidenav-container>
-  
+<mat-sidenav #sidenav class="bgimg" mode="push" class="app-sidenav">
+  <mat-toolbar color="primary">
+    <!--future svg to go here-->
+    <span class="toolbar-filler"></span>
+    <button mat-icon-button (click)="sidenav.toggle()" class="mat-icon-button sidenav-toggle-button" [hidden]="!sidenav.opened">
+      <mat-icon aria-label="Menu" class="material-icons">close</mat-icon>
+    </button>
+  </mat-toolbar>
+  <mat-nav-list>
+    <app-side-nav></app-side-nav>
+  </mat-nav-list>
+</mat-sidenav>
+<mat-toolbar id="appToolbar" color="primary">
+  <button mat-icon-button (click)="sidenav.toggle()" class="mat-icon-button sidenav-toggle-button" [hidden]="sidenav.opened">
+              <mat-icon aria-label="Menu" class="material-icons">menu</mat-icon>
+      </button>
+  <h1 class="component-title">
+    <a class="title-link">{{title}}</a>
+  </h1>
+  <span class="toolbar-filler"></span>
+  <a *ngIf="userState==false" routerLink = "/signup" id="button-login" mat-button>Sign Up</a>
+  <!--<button id="button-login" mat-button [routerLink]="['/signupin']" *ngIf="!(user | async)">Log In</button>-->
+  <a *ngIf="userState==true" routerLink = "/logout" (click)="logout()" id="button-logout" mat-button>Log out</a>
+  <a *ngIf="userState==false" routerLink = "/login" id="button-login" mat-button>Log in</a>
+</mat-toolbar>

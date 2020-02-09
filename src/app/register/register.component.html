@@ -1,0 +1,43 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="center-content">
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
+
+    <form (ngSubmit)="onSubmit()"  [formGroup]="registerForm" >
+
+      <mat-card-content  >
+
+
+        <mat-form-field class="field" >
+          <input  matInput placeholder="Username" formControlName="userName">
+          <mat-error *ngIf="userName.errors?.required">Name is required</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field  class="field">
+            <input matInput  placeholder="Enter your password" [type]="hide ? 'password' : 'text'" formControlName="password" >
+            <mat-error *ngIf="password.errors?.required">password is required</mat-error>
+            <mat-error *ngIf="password.errors?.hasSpecialCharacters">password must contains Special Characters</mat-error>
+            <mat-error *ngIf="password.errors?.hasNumber">password must contains number</mat-error>
+            <mat-error *ngIf="password.errors?.minlength">password is too short</mat-error>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          <br>
+          <mat-form-field class="field" >
+            <input matInput  type="password" placeholder="confrim password" formControlName="passwordConfirm" >
+            <mat-error *ngIf="passwordConfirm.errors?.required">confirm password is required</mat-error>
+
+          </mat-form-field>
+          <mat-error *ngIf="registerForm.errors?.mismatch">passwords doesn't match</mat-error>
+
+         <button class="submitbutton" mat-raised-button color="accent" [disabled]="registerForm.invalid"  type="submit">confirm</button>
+
+
+      </mat-card-content>
+
+    </form>
+    <lib-toastify-toast-container></lib-toastify-toast-container>
+  </mat-card>
+</div>

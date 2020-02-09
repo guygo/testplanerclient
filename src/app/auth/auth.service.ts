@@ -18,11 +18,11 @@ export class AuthService {
   public login(user:User)
   {
     const headers=new HttpHeaders({'Content-type':'application/json'});
-    const options= ({headers:headers});    
+    const options= ({headers:headers});
     return this.http.post<any>(this.URL+"login",user,options).pipe(
       map((response:any)=>{
         const data=response;
-        
+
         if(data){
           localStorage.setItem('token',data.tokenString);
           this.userToken=data.tokenString;
@@ -34,5 +34,10 @@ export class AuthService {
   {
     this.loggedIn.next(false);
   }
-
+  public register(user:User)
+  {
+    const headers=new HttpHeaders({'Content-type':'application/json'});
+    const options= ({headers:headers});
+    return this.http.post<any>(this.URL+"register",user,options);
+  }
 }

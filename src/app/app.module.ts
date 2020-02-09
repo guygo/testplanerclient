@@ -10,16 +10,18 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HttpClientModule, HTTP_INTERCEPTORS }    from '@angular/common/http';
 import { HttpErrorInterceptor } from './http-error.interceptor';
 import { NavComponent } from './nav/nav.component';
-
+import { RegisterComponent } from './register/register.component';
+import { ToastService, AngularToastifyModule } from 'angular-toastify';
+import { SideNavComponent } from './side-nav/side-nav.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     PageNotFoundComponent,
-    NavComponent
-   
-   
-  ],
+    NavComponent,
+    RegisterComponent,
+    SideNavComponent
+    ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
@@ -27,10 +29,12 @@ import { NavComponent } from './nav/nav.component';
     BrowserAnimationsModule,
     MyUsedModule,
     HttpClientModule,
-    FormsModule
-   
-  ],
-  providers: [{
+    FormsModule,
+    AngularToastifyModule
+   ],
+  providers: [
+    ToastService,
+    {
     provide: HTTP_INTERCEPTORS,
     useClass: HttpErrorInterceptor,
     multi: true
