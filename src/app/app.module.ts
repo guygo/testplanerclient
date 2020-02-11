@@ -13,6 +13,7 @@ import { NavComponent } from './nav/nav.component';
 import { RegisterComponent } from './register/register.component';
 import { ToastService, AngularToastifyModule } from 'angular-toastify';
 import { SideNavComponent } from './side-nav/side-nav.component';
+import { AuthGuard } from './auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { SideNavComponent } from './side-nav/side-nav.component';
     AngularToastifyModule
    ],
   providers: [
+    AuthGuard,
     ToastService,
     {
     provide: HTTP_INTERCEPTORS,

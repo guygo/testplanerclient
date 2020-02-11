@@ -1,11 +1,16 @@
-<a mat-list-item class="sidenav-link" [routerLink]="['/comp1']" (click)="toggleRightSidenav()">
+<a mat-list-item class="sidenav-link" [routerLink]="['/dashboard']" >
 
   <mat-icon class="dash" mat-list-icon>dashboard</mat-icon>
-  <span class="title" mat-line>comp1 fdsfsdfsd fsdsfdsfsd sdfds</span>
-  <span mat-line class="secondary">test</span>
+  <span class="title" mat-line>dashboard<span class="spacer">&nbsp;</span></span>
+ 
 </a>
-<a mat-list-item class="sidenav-link" [routerLink]="['/comp2']" (click)="toggleRightSidenav()">
-  <mat-icon mat-list-icon>android</mat-icon>
-  <span class="title" mat-line>comp2</span>
-  <span mat-line class="secondary">test</span>
+<a mat-list-item class="sidenav-link" [routerLink]="['/tests']" >
+  <mat-icon mat-list-icon>timer</mat-icon>
+  <span class="title" mat-line>tests</span>
+  
+</a>
+<a mat-list-item class="sidenav-link" [routerLink]="['/suites']" >
+  <mat-icon mat-list-icon>work</mat-icon>
+  <span class="title" mat-line>suits</span>
+
 </a>

@@ -18,8 +18,13 @@
     <a class="title-link">{{title}}</a>
   </h1>
   <span class="toolbar-filler"></span>
-  <a  routerLink = "/signup" id="button-login" mat-button>Sign Up</a>
-  <!--<button id="button-login" mat-button [routerLink]="['/signupin']" *ngIf="!(user | async)">Log In</button>-->
-  <a  routerLink = "/logout" (click)="logout()" id="button-logout" mat-button>Log out</a>
-  <a  routerLink = "/login" id="button-login" mat-button>Log in</a>
+  <a *ngIf="!userIsAuthenticated" routerLink = "/signup" id="button-login" mat-button>Sign Up</a>
+  
+  
+  <a mat-button *ngIf="userIsAuthenticated" [matMenuTriggerFor]="menu" ><mat-icon class="material-icons" style="font-size: 23px;">person</mat-icon><span class="name">{{username|titlecase}}</span></a>
+  <mat-menu   #menu="matMenu" class="customize">
+    <button mat-menu-item >Edit</button>
+    <a  routerLink = "/logout" (click)="logout()" id="button-logout" mat-menu-item>Log out</a>
+  </mat-menu>
+  <a *ngIf="!userIsAuthenticated" routerLink = "/login" id="button-login" mat-button>Log in</a>
 </mat-toolbar>
